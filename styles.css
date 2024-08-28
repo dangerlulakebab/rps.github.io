@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #222831;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    user-select: none;
+}
+footer {
+    color: gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #111720;
+    width: 100%;
+    height: 175px;
+}
+
+.nadpis {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 35px;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.rules {
+    font-size: 30px;
+    margin-top: 50px;
+    
+}
+
+.score {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.emoji {
+    font-size: 200px;
+}
+
+
+.item {
+    padding: 150px 45px;
+    background-color: #202833;
+}
+
+
+.weapons {
+    gap: 50px;
+    display: flex;
+    gap: 20px;
+}
+
+.weapons > div {
+    font-size: 75px;
+    background-color: #243246;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.weapons > div:hover {
+    background-color: #2d3d53;
+}
+
+.weapons > div:active {
+    background-color: #37485f;
+}

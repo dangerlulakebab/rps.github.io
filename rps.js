@@ -32,38 +32,11 @@ function determineWinner(human, computer) {
         return "robot";
     }
 }
-function fiveRounds() {
-    let humanScore = 0;
-    let robotScore = 0;
+
+function playRound(human, computer) {
     
-    for (let round = 1; round <= 5; round++) {
-        
-    console.log("------------------------------")
-    console.log(`Round: ${round}`)
-    
-        let humanChoice = getHumanChoice()
-        
-        let computerChoice = getComputerChoice()
-        console.log(`Computer choice: ${computerChoice}`)
-        
-        let result = determineWinner(humanChoice, computerChoice)
-        
-        if (result === "human") {
-            humanScore++;
-        }else {
-            robotScore++
-        }
-        console.log(`human ${humanScore} robot: ${robotScore}`)
-        
-    }
-        console.log("------------------------------")
-    
-        if (humanScore > robotScore){
-            console.log(`Human won with ${humanScore} congratulations`)
-        }
-        
-        console.log("------------------------------")
-        
 }
 
-fiveRounds()
+human = getHumanChoice();
+robot = getComputerChoice();
+

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>RPC</title>
+</head>
+<body>
+    <footer>
+        <div class="nadpis">Rock paper scissors👋</div>
+    </footer>
+    <main>
+        <div class="rules">pick your weapon</div>
+        <div class="score">
+            <div class="item1 item">
+                <div class="emoji" id="hmn">❔</div>
+                <div class="humanScore">human score: 0</div>
+            </div>
+            <div class="item2 item">
+                <div class="emoji" id="rbt">❔</div>
+                <div class="robotScore">robot score: 0</div>
+            </div>
+        </div>
+        <div class="weapons">
+            <div class="btn box1" id="rock">🪨</div>
+            <div class="btn box2" id='paper'>📃</div>
+            <div class="btn box3" id="scissors">✂️</div>
+        </div>
+    </main>
+    <script>
+        const weapons = document.querySelector('.weapons')
+        let hmn = document.getElementById('hmn')
+        let rbt = document.getElementById('rbt')
+        let humanScoreElement = document.querySelector('.humanScore')
+        let robotScoreElement = document.querySelector('.robotScore')
+        // let round = document.getElementById('round')
+
+        let humanScore = 0;
+        let robotScore = 0;
+
+
+
+        function getComputerChoice() {
+            let num = Math.floor(Math.random() * 3) + 1
+            
+            if (num == 1) {
+                return "✂️"
+            }else if (num == 2){
+                return "📃"
+            }else{
+                return "🪨"
+            }
+        }
+
+
+
+        function determineWinner(human, computer) {
+            if (human === computer) {
+                return "draw";
+            } else if (
+                (hmn.textContent === '🪨' && rbt.textContent === '✂️') ||
+                (hmn.textContent === '✂️' && rbt.textContent === '📃') ||
+                (hmn.textContent === '📃' && rbt.textContent === '🪨')
+            ) {
+                humanScore++
+            } else {
+                robotScore++
+            }
+        }
+
+    
+        weapons.addEventListener('click', (e) => {
+
+            const clickedElement = e.target;
+            let rbtChoice = getComputerChoice();
+            let humanChoice;   
+
+            if (clickedElement.id === 'rock') {
+                humanChoice = '🪨'
+            }else if (clickedElement.id === 'paper') {
+                humanChoice = '📃'
+            }else if (clickedElement.id === 'scissors') {
+                humanChoice = '✂️'
+            }
+
+            hmn.textContent = humanChoice;
+            rbt.textContent = rbtChoice
+
+            determineWinner(humanChoice, rbtChoice)
+            // round++
+
+
+            // update score display:
+
+            humanScoreElement.textContent = `human score: ${humanScore}`
+            robotScoreElement.textContent = `robot score: ${robotScore}`
+        })
+
+        // btn.forEach(btn => {
+        //     addEventListener('click', () => {
+        //         alert('hellowrold')
+        //         hmn.textContent = '🪨'
+        //     })
+        // });
+    </script>
+</body> 
+</html>
